@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for ffmpeg.
-GH_REPO="https://github.com/acj/asdf-ffmpeg"
+RELEASE_URL="https://ffmpeg.org/releases/"
+GH_REPO="https://github.com/FFmpeg/FFmpeg"
 TOOL_NAME="ffmpeg"
 TOOL_TEST="ffmpeg --version"
 
@@ -14,26 +14,13 @@ fail() {
 
 curl_opts=(-fsSL)
 
-# NOTE: You might want to remove this if ffmpeg is not hosted on GitHub releases.
-if [ -n "${GITHUB_API_TOKEN:-}" ]; then
-  curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
-fi
-
 sort_versions() {
   sed 'h; s/[+-]/./g; s/.p\([[:digit:]]\)/.z\1/; s/$/.z/; G; s/\n/ /' |
     LC_ALL=C sort -t. -k 1,1 -k 2,2n -k 3,3n -k 4,4n -k 5,5n | awk '{print $2}'
 }
 
-list_github_tags() {
-  git ls-remote --tags --refs "$GH_REPO" |
-    grep -o 'refs/tags/.*' | cut -d/ -f3- |
-    sed 's/^v//' # NOTE: You might want to adapt this sed to remove non-version strings from tags
-}
-
 list_all_versions() {
-  # TODO: Adapt this. By default we simply list the tag names from GitHub releases.
-  # Change this function if ffmpeg has other means of determining installable versions.
-  list_github_tags
+  curl "${curl_opts[@]}" https://ffmpeg.org/releases/ | sed -rn 's/^.*ffmpeg-([[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+))\.tar\.gz[^\.].*$/\1/p'
 }
 
 download_release() {
@@ -41,8 +28,7 @@ download_release() {
   version="$1"
   filename="$2"
 
-  # TODO: Adapt the release URL convention for ffmpeg
-  url="$GH_REPO/archive/v${version}.tar.gz"
+  url="$RELEASE_URL/ffmpeg-${version}.tar.gz"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
@@ -59,9 +45,12 @@ install_version() {
 
   (
     mkdir -p "$install_path"
-    cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
-    # TODO: Assert ffmpeg executable exists.
+    cd "$ASDF_DOWNLOAD_PATH"
+    ./configure --prefix="${install_path%/bin}"
+    MAKEFLAGS="-j$ASDF_CONCURRENCY" make
+    make install
+
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
     test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."

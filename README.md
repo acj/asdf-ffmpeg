@@ -1,11 +1,7 @@
-<div align="center">
-
 # asdf-ffmpeg [![Build](https://github.com/acj/asdf-ffmpeg/actions/workflows/build.yml/badge.svg)](https://github.com/acj/asdf-ffmpeg/actions/workflows/build.yml) [![Lint](https://github.com/acj/asdf-ffmpeg/actions/workflows/lint.yml/badge.svg)](https://github.com/acj/asdf-ffmpeg/actions/workflows/lint.yml)
 
 
-[ffmpeg](https://github.com/acj/asdf-ffmpeg) plugin for the [asdf version manager](https://asdf-vm.com).
-
-</div>
+[ffmpeg](https://ffmpeg.org) plugin for the [asdf version manager](https://asdf-vm.com).
 
 # Contents
 
@@ -16,10 +12,7 @@
 
 # Dependencies
 
-**TODO: adapt this section**
-
 - `bash`, `curl`, `tar`: generic POSIX utilities.
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
 
 # Install
 
@@ -52,10 +45,10 @@ install & manage versions.
 
 # Contributing
 
-Contributions of any kind welcome! See the [contributing guide](contributing.md).
+Contributions are welcome! See the [contributing guide](contributing.md).
 
 [Thanks goes to these contributors](https://github.com/acj/asdf-ffmpeg/graphs/contributors)!
 
 # License
 
-See [LICENSE](LICENSE) © [Adam Jensen](https://github.com/acj/)
+MIT. See [LICENSE](LICENSE) for details.

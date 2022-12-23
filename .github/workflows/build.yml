@@ -27,5 +27,7 @@ jobs:
           brew install nasm
       - name: asdf_plugin_test
         uses: asdf-vm/actions/plugin-test@v1
+        env:
+          ASDF_CONCURRENCY: 4
         with:
           command: ffmpeg -version

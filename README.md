@@ -37,7 +37,7 @@ asdf install ffmpeg latest
 asdf global ffmpeg latest
 
 # Now ffmpeg commands are available
-ffmpeg --version
+ffmpeg -version
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to

@@ -211,7 +211,7 @@ install_version() {
     else
       echo "* Configuring ffmpeg with default options"
     fi
-    
+
     ./configure --prefix="${install_path%/bin}" ${enabled_options} || exit 1
     MAKEFLAGS="-j$ASDF_CONCURRENCY" make install || exit 1
 

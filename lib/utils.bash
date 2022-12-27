@@ -196,6 +196,7 @@ install_version() {
   local install_type="$1"
   local version="$2"
   local install_path="${3%/bin}/bin"
+  local enabled_options="$(configure_addon_options)"
 
   if [ "$install_type" != "version" ]; then
     fail "asdf-$TOOL_NAME supports release installs only"
@@ -205,13 +206,13 @@ install_version() {
     mkdir -p "$install_path"
 
     cd "$ASDF_DOWNLOAD_PATH"
-    if [[ -n "${configure_addon_options:-}" ]]; then
-      echo "* Configuring ffmpeg with options: $(configure_addon_options)"
+    if [[ -n "${enabled_options:-}" ]]; then
+      echo "* Configuring ffmpeg with options: ${enabled_options}"
     else
       echo "* Configuring ffmpeg with default options"
     fi
     
-    ./configure --prefix="${install_path%/bin}" $(configure_addon_options) || exit 1
+    ./configure --prefix="${install_path%/bin}" ${enabled_options} || exit 1
     MAKEFLAGS="-j$ASDF_CONCURRENCY" make install || exit 1
 
     local tool_cmd

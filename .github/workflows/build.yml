@@ -26,7 +26,7 @@ jobs:
         run: |
           brew install nasm
       - name: asdf_plugin_test
-        uses: asdf-vm/actions/plugin-test@v1
+        uses: asdf-vm/actions/plugin-test@dd88cacda735aadf625b889cbed3cd5923437af7 # 2022-12-13
         env:
           ASDF_CONCURRENCY: 4
         with:

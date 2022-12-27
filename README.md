@@ -37,8 +37,6 @@ sudo apt-get update -qq && sudo apt-get -y install \
 First, install this plugin:
 
 ```shell
-asdf plugin add ffmpeg
-# or
 asdf plugin add ffmpeg https://github.com/acj/asdf-ffmpeg.git
 ```
 

@@ -205,7 +205,12 @@ install_version() {
     mkdir -p "$install_path"
 
     cd "$ASDF_DOWNLOAD_PATH"
-    echo "* Configuring ffmpeg with options: $(configure_addon_options)"
+    if [[ -n "${configure_addon_options:-}" ]]; then
+      echo "* Configuring ffmpeg with options: $(configure_addon_options)"
+    else
+      echo "* Configuring ffmpeg with default options"
+    fi
+    
     ./configure --prefix="${install_path%/bin}" $(configure_addon_options) || exit 1
     MAKEFLAGS="-j$ASDF_CONCURRENCY" make install || exit 1
 

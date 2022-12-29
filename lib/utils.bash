@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-RELEASE_URL="https://ffmpeg.org/releases/"
+RELEASE_URL="https://ffmpeg.org/releases"
 GH_REPO="https://github.com/FFmpeg/FFmpeg"
 TOOL_NAME="ffmpeg"
 TOOL_TEST="ffmpeg -version"

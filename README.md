@@ -23,6 +23,13 @@ brew install automake fdk-aac git lame libass libtool libvorbis libvpx \
   opus sdl shtool texi2html theora wget x264 x265 xvid nasm
 ```
 
+You might also need to set `CFLAGS` and `LDFLAGS` so that the compiler/linker toolchain can find headers and libraries from your Homebrew packages:
+
+```sh
+export CFLAGS="$CFLAGS -I$(brew --prefix)/include"
+export LDFLAGS="$LDFLAGS -L$(brew --prefix)/lib"
+```
+
 ## Ubuntu
 
 ```sh

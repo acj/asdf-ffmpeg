@@ -20,7 +20,7 @@ sort_versions() {
 }
 
 list_all_versions() {
-  curl "${curl_opts[@]}" https://ffmpeg.org/releases/ | sed -rn 's/^.*ffmpeg-([[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+))\.tar\.gz[^\.].*$/\1/p'
+  curl "${curl_opts[@]}" https://ffmpeg.org/releases/ | sed -rn 's/^.*ffmpeg-([[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+)?)\.tar\.gz[^\.].*$/\1/p'
 }
 
 download_release() {

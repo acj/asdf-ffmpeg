@@ -20,7 +20,7 @@ Depending on the install options you choose, FFmpeg may require more libraries t
 
 ```sh
 brew install automake fdk-aac git lame libass libtool libvorbis libvpx \
-  opus sdl shtool texi2html theora wget x264 x265 xvid nasm
+  opus sdl2 shtool texi2html theora wget x264 x265 xvid nasm zimg
 ```
 
 You might also need to set `CFLAGS` and `LDFLAGS` so that the compiler/linker toolchain can find headers and libraries from your Homebrew packages:

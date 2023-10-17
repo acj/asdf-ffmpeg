@@ -212,7 +212,7 @@ install_version() {
       echo "* Configuring ffmpeg with default options"
     fi
 
-    ./configure --prefix="${install_path%/bin}" ${enabled_options} || exit 1
+    ./configure --prefix="${install_path%/bin}" ${enabled_options} ${ASDF_FFMPEG_OPTIONS_EXTRA:-} || exit 1
     MAKEFLAGS="-j$ASDF_CONCURRENCY" make install || exit 1
 
     local tool_cmd

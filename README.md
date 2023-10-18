@@ -91,6 +91,12 @@ If you want to enable all supported options, you can set `ASDF_FFMPEG_ENABLE` to
 export ASDF_FFMPEG_ENABLE="all"
 ```
 
+If you want to pass arbitrary options to ffmpeg's `configure` script, you can use `ASDF_FFMPEG_OPTIONS_EXTRA`:
+
+```sh
+export ASDF_FFMPEG_OPTIONS_EXTRA="--extra-version=my-ffmpeg-build"
+```
+
 ### Supported options
 
 See the [FFmpeg documentation](https://ffmpeg.org/general.html#External-libraries) for more information about what these options mean.

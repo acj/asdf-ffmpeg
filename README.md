@@ -234,6 +234,15 @@ See the [FFmpeg documentation](https://ffmpeg.org/general.html#External-librarie
 |  version3       | upgrade (L)GPL to version 3 |
 |  xmm-clobber-test | check XMM registers for clobbering |
 
+## Tools and utilities
+
+FFmpeg includes a handful of often-overlooked tools that are useful for troubleshooting and other advanced work. These tools are not installed by default, but you can enable them by setting `ASDF_FFMPEG_ENABLE_TOOLS`. For example, to enable `ffescape` and `graph2dot`, use the following:
+
+```sh
+export ASDF_FFMPEG_ENABLE_TOOLS="ffescape graph2dot"
+```
+
+A full list of tools can be found in the [FFmpeg source tree](https://github.com/FFmpeg/FFmpeg/tree/master/tools).
 
 # Contributing
 

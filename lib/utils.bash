@@ -220,6 +220,12 @@ install_version() {
     test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
     echo "$TOOL_NAME $version installation was successful!"
+
+    for tool in $(echo ${ASDF_FFMPEG_ENABLE_TOOLS:-}); do
+      MAKEFLAGS="-j$ASDF_CONCURRENCY" make tools/${tool} || exit 1
+      cp tools/${tool} $install_path || exit 1
+      echo "${tool} installation was successful!"
+    done
   ) || (
     rm -rf "$install_path"
     fail "An error occurred while installing $TOOL_NAME $version."

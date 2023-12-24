@@ -51,6 +51,13 @@ asdf plugin add ffmpeg
 asdf plugin add ffmpeg https://github.com/acj/asdf-ffmpeg.git
 ```
 
+Second, choose which options you want to enable. Here is a reasonable starting point with broad support for modern codecs:
+
+```sh
+# Tip: put this in your ~/.bashrc or ~/.zshrc so that it's available for future installs
+export ASDF_FFMPEG_ENABLE="libaom fontconfig freetype frei0r lame libass libvorbis libvpx opus rtmpdump sdl2 snappy theora x264 x265 xz"
+```
+
 Then, select a version of ffmpeg and install it:
 
 ```shell
@@ -66,6 +73,8 @@ asdf global ffmpeg latest
 # Now ffmpeg commands are available
 ffmpeg -version
 ```
+
+If there are errors during the build, you might need to install additional libraries.
 
 ## Libraries and add-ons
 

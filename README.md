@@ -85,12 +85,6 @@ It can also be done inline during the install:
 ASDF_FFMPEG_ENABLE="libass libvpx" asdf install ffmpeg latest
 ```
 
-If you want to enable all supported options, you can set `ASDF_FFMPEG_ENABLE` to `all`:
-
-```sh
-export ASDF_FFMPEG_ENABLE="all"
-```
-
 If you want to pass arbitrary options to ffmpeg's `configure` script, you can use `ASDF_FFMPEG_OPTIONS_EXTRA`:
 
 ```sh

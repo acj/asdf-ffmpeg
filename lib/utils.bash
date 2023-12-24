@@ -175,19 +175,13 @@ configure_addon_options() {
   )
   enabled_options=()
 
-  if [[ "${ASDF_FFMPEG_ENABLE:-}" == "all" ]]; then
-    for lib in "${supported_options[@]}"; do
+  for lib in $(echo ${ASDF_FFMPEG_ENABLE:-}); do
+    if [[ " ${supported_options[*]} " =~ " ${lib} " ]]; then
       enabled_options+=("--enable-${lib}")
-    done
-  else
-    for lib in $(echo ${ASDF_FFMPEG_ENABLE:-}); do
-      if [[ " ${supported_options[*]} " =~ " ${lib} " ]]; then
-        enabled_options+=("--enable-${lib}")
-      else
-        echo "Warning: unsupported library \"${lib}\"" >&2
-      fi
-    done
-  fi
+    else
+      echo "Warning: unsupported library \"${lib}\"" >&2
+    fi
+  done
 
   echo "${enabled_options[@]:-}"
 }

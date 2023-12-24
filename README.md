@@ -99,7 +99,7 @@ See the [FFmpeg documentation](https://ffmpeg.org/general.html#External-librarie
 |---------|-------------|
 |  avisynth       |  enable reading of AviSynth script files |
 |  chromaprint    | enable audio fingerprinting with chromaprint |
-|  cross-compile  | assume a cross-compiler is used
+|  cross-compile  | assume a cross-compiler is used |
 |  cuda-nvcc      | enable Nvidia CUDA compiler |
 |  decklink       | enable Blackmagic DeckLink I/O support |
 |  extra-warnings | enable more compiler warnings |
@@ -116,7 +116,7 @@ See the [FFmpeg documentation](https://ffmpeg.org/general.html#External-librarie
 |  lcms2          | enable ICC profile support via LittleCMS 2 |
 |  libaom         | enable AV1 video encoding/decoding via libaom |
 |  libaribb24     | enable ARIB text and caption decoding via libaribb24 |
-|  libass         | enable libass subtitles rende |
+|  libass         | enable libass subtitles rendering, needed for subtitles and ass filter |
 |  libbluray      | enable BluRay reading using libbluray |
 |  libbs2b        | enable bs2b DSP library |
 |  libcaca        | enable textual display using libcaca |
@@ -153,7 +153,7 @@ See the [FFmpeg documentation](https://ffmpeg.org/general.html#External-librarie
 |  libopenh264    | enable H.264 encoding via OpenH264 |
 |  libopenjpeg    | enable JPEG 2000 de/encoding via OpenJPEG |
 |  libopenmpt     | enable decoding tracked files via libopenmpt |
-|  libopenvino    | enable OpenVINO as a DNN module ba |
+|  libopenvino    | enable OpenVINO as a DNN module backend for DNN based filters like dnn_processing |
 |  libopus        | enable Opus de/encoding via libopus |
 |  libplacebo     | enable libplacebo library |
 |  libpulse       | enable Pulseaudio input via libpulse |
@@ -205,7 +205,7 @@ See the [FFmpeg documentation](https://ffmpeg.org/general.html#External-librarie
 |  mbedtls        | enable mbedTLS, needed for https support |
 |  mediacodec     | enable Android MediaCodec support  |
 |  mediafoundation  | enable encoding via MediaFoundation |
-|  memory-poisoning | fill heap uninitialized allocated space with arbitrary  |
+|  memory-poisoning | fill heap uninitialized allocated space with arbitrary data |
 |  mmal           | enable Broadcom Multi-Media Abstraction Layer (Raspberry Pi) via MMAL |
 |  neon-clobber-test | check NEON registers for clobbering (should be used for debugging purposes only |
 |  nonfree        | allow use of nonfree code, the resulting libs and binaries will be unredistributable |
@@ -214,16 +214,16 @@ See the [FFmpeg documentation](https://ffmpeg.org/general.html#External-librarie
 |  openal         | enable OpenAL 1.1 capture support |
 |  opencl         | enable OpenCL processing |
 |  opengl         | enable OpenGL rendering |
-|  openssl        | enable openssl, needed for https su |
+|  openssl        | enable openssl, needed for https support |
 |  ossfuzz        | Enable building fuzzer |
-|  pic            | build position-independent |
+|  pic            | build position-independent code |
 |  pocketsphinx   | enable PocketSphinx, needed for asr filter |
 |  random         | randomly enable/disable components |
 |  rkmpp          | enable Rockchip Media Process Platform code |
 |  rpath          | use rpath to allow installing libraries in paths |
 |  shared         | build shared libraries |
-|  small          | optimize for size instead of  |
-|  thumb          | compile for Thumb instructio |
+|  small          | optimize for size instead of speed |
+|  thumb          | compile for Thumb instruction set |
 |  vapoursynth    | enable VapourSynth demuxer |
 |  version3       | upgrade (L)GPL to version 3 |
 |  xmm-clobber-test | check XMM registers for clobbering |

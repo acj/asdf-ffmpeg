@@ -8,10 +8,10 @@ on:
 
 jobs:
   shellcheck:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install asdf dependencies
         uses: asdf-vm/actions/install@v1
@@ -20,10 +20,10 @@ jobs:
         run: scripts/shellcheck.bash
 
   shellfmt:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install asdf dependencies
         uses: asdf-vm/actions/install@dd88cacda735aadf625b889cbed3cd5923437af7 # 2022-12-13

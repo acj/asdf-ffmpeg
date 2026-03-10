@@ -67,6 +67,9 @@ asdf list-all ffmpeg
 # Install specific version
 asdf install ffmpeg latest
 
+# Install the current development version from ffmpeg's master branch
+asdf install ffmpeg snapshot
+
 # Set a version globally (on your ~/.tool-versions file)
 asdf global ffmpeg latest
 

@@ -27,8 +27,13 @@ download_release() {
   local version filename url
   version="$1"
   filename="$2"
+  ext=".tar.gz"
 
-  url="$RELEASE_URL/ffmpeg-${version}.tar.gz"
+  if [ "$version" = "snapshot" ]; then
+    ext=".tar.bz2"
+  fi
+
+  url="$RELEASE_URL/ffmpeg-${version}${ext}"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"

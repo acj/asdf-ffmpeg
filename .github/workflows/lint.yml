@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install asdf dependencies
         uses: asdf-vm/actions/install@v1
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install asdf dependencies
         uses: asdf-vm/actions/install@dd88cacda735aadf625b889cbed3cd5923437af7 # 2022-12-13
